@@ -1,6 +1,52 @@
+Enter difficulty score (as a decimal/double): 7.32
+Enter filename where scores are held: scores.dat
 Gymnastics Scores
 ---------------------
-Judges Execution Scores:  8.7 8.0 9.2 8.3 8.7 8.4 
-Average Execution Score: 8.525
-Average Difficulty Score: 6.0
-The Final Score: 14.525
+Judges Execution Scores:  8.0  8.3  8.4  8.7  8.7  9.2  
+Average Execution Score: 8.550000000000002
+Average Difficulty Score: 7.32
+The Final Score: 15.870000000000003
+
+
+
+Enter difficulty score (as a decimal/double): thiswontwork
+Incorrect input.
+Enter difficulty score (as a decimal/double): 6.25
+Enter filename where scores are held: scores.data
+Gymnastics Scores
+---------------------
+Judges Execution Scores:  6.9  8.7  9.2  
+Average Execution Score: 8.266666666666666
+Average Difficulty Score: 6.25
+The Final Score: 14.516666666666666
+
+
+
+Enter difficulty score (as a decimal/double): 8.3
+Enter filename where scores are held: thiswontwork.data
+thiswontwork.data, containing the survey results, not found
+java.io.FileNotFoundException: thiswontwork.data (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+	at java.io.FileReader.<init>(FileReader.java:58)
+	at OlympicScores2.main(OlympicScores2.java:39)
+Gymnastics Scores
+---------------------
+Judges Execution Scores:  
+Average Execution Score: NaN
+Average Difficulty Score: 8.3
+The Final Score: NaN
+
+
+
+Enter difficulty score (as a decimal/double): 8.3
+Enter filename where scores are held: scores.data
+Gymnastics Scores
+---------------------
+Judges Execution Scores:  6.9  8.7  9.2  
+Average Execution Score: 8.266666666666666
+Average Difficulty Score: 8.3
+The Final Score: 16.566666666666666
+

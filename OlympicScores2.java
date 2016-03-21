@@ -13,7 +13,7 @@ import java.io.*;  //Import io packages for BufferedReader and FileReader
 import java.util.Collections;  //Import Collections for containing the scores
 
 
-public class OlympicScores {
+public class OlympicScores2 {
 
     static double AVERAGE_DIFFICULTY; //initialize class variable (difficulty)
     static List<Double> judgesScores = new ArrayList<>(); //set up array for scores
@@ -26,17 +26,15 @@ public class OlympicScores {
 		scan.useDelimiter("\n"); //Breaks up by lines
 		
 		String difficultyPrompt = "Enter difficulty score (as a decimal/double): ";
-		promptAndHandleDoubleInput(scan, difficultyPrompt);  //See documentation for promptAndHandleDoubleInput
+		promptAndHandleDoubleInput(scan, difficultyPrompt);
 		
-		AVERAGE_DIFFICULTY = scan.nextDouble();  //Get the difficulty score
+		AVERAGE_DIFFICULTY = scan.nextDouble();
 		scan.nextLine();
 		
 		String scoresFilePrompt = "Enter filename where scores are held: ";
-		promptAndHandleStringInput(scan, scoresFilePrompt);  //See documentation for promptAndHandleStringInput
-		IN_FILE = scan.next();  //Get the filename
+		promptAndHandleStringInput(scan, scoresFilePrompt);
+		IN_FILE = scan.next();
 		
-
-		//Error handling: try to read file, catch FileNotFound exception and IO exception
 		try {
 			BufferedReader input = new BufferedReader(new FileReader(IN_FILE));
 	
@@ -44,7 +42,7 @@ public class OlympicScores {
 			while ((line = input.readLine()) != null) {
 				// System.out.println(line);
 				double score = Double.parseDouble(line);
-				judgesScores.add(score);  //Add to ArrayList called judgesScores
+				judgesScores.add(score);
 			}
 	
 			input.close();
@@ -58,7 +56,7 @@ public class OlympicScores {
 							+ IN_FILE);
 			e.printStackTrace();
 		}
-	//Print out all relevant data
+	
 	System.out.println("Gymnastics Scores" + "\n" + "---------------------");
 	System.out.print("Judges Execution Scores:  ");  //printing judges scores
 	Collections.sort(judgesScores);
