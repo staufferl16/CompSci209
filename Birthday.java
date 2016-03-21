@@ -1,87 +1,132 @@
-/**
- * Birthday Class.  This program has two constructors. One
- * generates a Birthday object with the specified month and day 
- * and another that generates a Birthday object with a random
- * month and day. 
- *
- * @author: Leigh Stauffer
- */
 import java.util.Random;
-import java.lang.String;
+import java.lang.String;  //Import String module.
+import java.lang.StringBuilder; //Import StringBuilder.
 
+/**
+ * Represents the month and day of a birthday.
+ * (For assignment 2)
+ * 
+ * If you use this class, you should say that you modified it.
+ * 
+ * @author Leigh Stauffer
+ */
 public class Birthday {
+    
+    /** Between 1 and 12, inclusive; 1 = January, 2 = February, etc. */
+    private int month;
+    
+    private int day;
+    
+    // --------------- CONSTANTS -------------------
 
-    // ----Instance Variables----
-    private int month;  //Which month of the year (12 options)
-    private int day;  //Which day of the month (up to 31 options)
-    private static final int[] monthDayMax = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    private Random randomizer = new Random();
+    // assumes February has 29 days
+    private static final int[] daysInMonth = { 31, 29, 31, 30, 31, 30, 31, 31,
+			30, 31, 30, 31 };
 
-    /**
-     * Create new Birthday objects.
-     * If no month or day is specified, generate random B-day.
-     * Otherwise, generate B-day object of specified month and day.
-     */
-    public Birthday( int month, int day){
-	if (0 < month && month < 13) {
-	    this.month = month;
-        }
-	else {
-	    System.out.println("Incorrect month integer");
-	    System.exit(0);
-	}
-	if (0 < day && day <= monthDayMax[month-1]) {
-	    this.day = day;
-	}
-	else {
-	    System.out.println("Incorrect day integer");
-	    System.exit(0);
-	}
+    private static final String[] MONTHS = { "January", "February", "March",
+			"April", "May", "June", "July", "August", "September", "October",
+			"November", "December" };
+
+    private static final int NUM_MONTHS = MONTHS.length;
+
+    private static Random random = new Random();
+
+    private static final int JANUARY = 1;
+    private static final int DECEMBER = 12;
+
+    public Birthday(int month, int day) {
+        this.month = month;
+        this.day = day;
     }
-    public Birthday( ) {
-    // If no parameter specification, generate random birthday object.
-	this.month = randomizer.nextInt(13);
-        int dayBound = monthDayMax[month-1];
-	this.day = randomizer.nextInt(dayBound+1);
-    }	
-    //----Getter methods----
+
+    public Birthday() {
+        // Randomly generate the month: between 1 and 12, inclusive
+        month = random.nextInt(12) + 1;
+
+        // Picks a random day, based on the month
+        day = random.nextInt(daysInMonth[month-1]) + 1;
+    }
+    
     public int getMonth(){
-	return month;
-    }
-    public int getDay(){
-	return day;
+        return month;
     }
 
-    //----Setter methods----
-    public void setMonth(int m){
-        month = m;
-    }
-    public void setDay(int d){
-	day = d;
+    public void setMonth(int month) {
+        this.month = month;
     }
 
-    //Test class, constructors, accessors, and mutators.
-    public static void main(String[] args) {
-	//Initialize Birthday objects that will be used throughout testing.
-        Birthday myBirthday = new Birthday(3, 8);
-        Birthday randomBirthday = new Birthday();
-
-        System.out.println("Created specific Birthday object: " + myBirthday);
-	System.out.println("Month: " + myBirthday.month + "    Day: " + myBirthday.day);
-	System.out.println("Created random Birthday objects: " + randomBirthday);
-	System.out.println("Month: " + randomBirthday.month + "    Day: " + randomBirthday.day);
-	System.out.println("Testing getters: " + randomBirthday.getMonth() + "/" + randomBirthday.getDay());
-	System.out.println("Testing getters: " + myBirthday.getMonth() + "/" + myBirthday.getDay());
-	randomBirthday.setMonth(3);
-	randomBirthday.setDay(25);
-	myBirthday.setMonth(12);
-        myBirthday.setDay(25);
-	System.out.println("Expect 12/25: " + myBirthday.getMonth() + "/" + myBirthday.getDay());
-	System.out.println("Expect 3/25: " + randomBirthday.getMonth() + "/" + randomBirthday.getDay());
-	//System.out.println("Expect error due to month...");
-	//Birthday wrongMonth = new Birthday(15, 6);
-	//System.out.println("Expect error due to day...");
-	//Birthday wrongDay = new Birthday(6, 31);
+    public int getDay() {
+        return day;
     }
+
+    public void setDay(int day) { 
+        this.day = day;
+    }
+	
+    //Overridden Parent (Object) methods
+    public String toString(){
+	StringBuilder rep = new StringBuilder("\nMonth: ");
+	rep.append(MONTHS[month-1]);
+	rep.append("\nDay: ");
+	rep.append(day);
+	return rep.toString();
+    }
+
+    public boolean equals(Object obj){
+	if (this == obj){
+	    return true;
+	}
+	if ( ! (obj instanceof Birthday)){
+	    return false;
+	}
+	Birthday other = (Birthday) obj;
+	if (other.getMonth() != this.getMonth()){
+	    return false;
+	}
+	if (other.getDay() != this.getDay()){
+	    return false;
+	}
+	else {
+	    return true;
+	}
+    }
+    
+    /**
+     * @param month : 1 is January, 2 is February, ..., 12 is December
+     * @param day : must be in valid range for the month (typically 1 to 29-31) 
+     * @throws IllegalArgumentException if month or day is out of the valid range
+     */
+    public void setBirthday( int month, int day ) {
+        // check month (1 and 12) and day in range (depends on the month)
+        // if not, then throw an IllegalArgumentException
+        if( month < 1 || month > 12 ) {
+            throw new IllegalArgumentException("Month is not in valid range (1-12)");   
+        }
+        
+        if( day < 1 || day > daysInMonth[month-1] ) {
+            throw new IllegalArgumentException("Day is not in valid range (1-" + daysInMonth[month-1] + ")");   
+        }
+        
+        // set the values if valid
+        this.month = month;
+        this.day = day;
+    }
+    
+    public static void main(String args[]) {
+        System.out.println(new Birthday());
+        System.out.println(new Birthday());
+        
+        Birthday b = new Birthday();
+        b.setBirthday(2, 29);  //Change day of month so exception is not thrown.
+	System.out.println("String representation of b: " + b.toString());
+	Birthday mine = new Birthday(3,8);
+	Birthday yours = new Birthday(8,15);
+	Birthday same = new Birthday(3,8);
+	Birthday alias = mine;
+	System.out.println("Expect true: " + mine.equals(same));
+	System.out.println("Expect true: " + mine.equals(alias));
+	System.out.println("Expect false: " + mine.equals(yours));
+	
+    }
+
 }
-            
