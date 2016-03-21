@@ -117,11 +117,18 @@ public class Game extends JFrame implements KeyListener {
 
 	public void animate() {
 		boolean stop = false; // controls when loop stops
+		
+		//Create array to place GamePieces. (There are only 3 characters.)
+		GamePiece[] characters = new GamePiece[3];
 
-		// our images
+		// our images and characters
 		professor = new Human(XBOUND - 50, YBOUND - 50, brush);
 		goblin = new Goblin(0, YMIN_DISPLAY, brush);
 		treasure = new Treasure(firstCoord.nextInt(XBOUND+1), firstCoord.nextInt(YBOUND+1), brush);
+		
+		characters[0] = professor; //Add professor to characters array.
+		characters[1] = treasure; //Add treasure to characters array.
+		characters[2] = goblin;  //Add goblin to characters array.
 
 		// wait 1 second
 		try {
@@ -132,18 +139,10 @@ public class Game extends JFrame implements KeyListener {
 		boolean win = false;
 
 		while (!stop) {
-			professor.move(this);
-			professor.draw();
-			
-
-			// TODO: move the treasure (periodically) and draw it
-			treasure.move(this);
-			treasure.draw();
-			
-			// TODO: move the goblin and draw it
-			goblin.move(this);
-			goblin.draw();
-			
+			for(int i=0; i<characters.length; i++){
+				characters[i].move(this);
+				characters[i].draw();
+			}
 
 			// Extra Credit: Determine win/loss
 			
@@ -172,3 +171,29 @@ public class Game extends JFrame implements KeyListener {
 	}
 
 }
+
+/**
+* Because of dynamic dispatch, we are able to call the correct move method on
+* each of GamePiece's child objects.  At compile time, the program sees that
+* the parent class's move method is abstract. So, it knows to implement each
+* child class' respective move method.  In this way, we can call move on each
+* GamePiece object held in the characters array without having the different
+* GamePiece children exhibiting incorrect behavior or movement.
+*
+* If we made the Goblin class abstract, it would be relatively easy to create a
+* new species of Goblin. First, we need to make Goblin an abstract class by
+* declaring abstract class Goblin extends GamePiece.  Next, we could call this 
+* new child class Boogey since it exhibits behavior different enough to not
+* specifically be a Goblin (zig-zagging motion). To do this we declare class
+* Boogey extends Goblin.  Instead of creating our own constructor from scratch 
+* and repeating what each field is, we could call super after we set up our
+* constructor:
+* (public class Boogey(int x, int y, Graphics g){
+*     super(x,y,g);
+*     .....
+* }
+* The next step is to declare @override before defining the new Move method.
+* Since the only difference between Goblin and Boogey is the move method and
+* since Boogey inherits from Goblin, implementing the move function is all that
+* is required to finish the Boogey class, a child class of Goblin.
+*/
