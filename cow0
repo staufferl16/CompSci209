@@ -1,0 +1,7 @@
+The length of command-line args is 2
+arg[0] is pig with length 3
+arg[1] is goat with length 4
+The sorted command-line arguments are 
+	goat
+	pig
+You don't have a cow, man.
