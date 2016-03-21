@@ -1,0 +1,8 @@
+Created specific Birthday object: Birthday@6d06d69c
+Month: 3    Day: 8
+Created random Birthday objects: Birthday@7852e922
+Month: 2    Day: 9
+Testing getters: 2/9
+Testing getters: 3/8
+Expect 12/25: 12/25
+Expect 3/25: 3/25
