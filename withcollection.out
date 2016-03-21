@@ -1,0 +1,7 @@
+Sorted library with collection implementation: 
+DVD[title=2001: A Space Odyssey, isPresent=true, playingTime=195.48999999999998, copyrightYear=1968, rating=G, bonusFeatureTime=34.26]
+BookOnTape[author=John Biguenet, narrator=Xe Sands, title=Oyster, isPresent=false, playingTime=589.12, copyrightYear=2003]
+CD [title=Cease To Begin, isPresent=false, playingTime=34.0, copyrightYear=2007, artist=Band of Horses, numOfTracks=10]
+BookOnTape[author=David Foster Wallace, narrator=Sean Pratt, title=Infinite Jest, isPresent=true, playingTime=3374.03, copyrightYear=2012]
+CD [title=Every Open Eye, isPresent=true, playingTime=42.0, copyrightYear=2015, artist=CHVCHES, numOfTracks=11]
+DVD[title=Mad Max: Fury Road, isPresent=false, playingTime=166.49, copyrightYear=2015, rating=R, bonusFeatureTime=46.04]

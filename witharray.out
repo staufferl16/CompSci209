@@ -1,0 +1,35 @@
+Sorted Array...
+DVD[title=2001: A Space Odyssey, isPresent=true, playingTime=195.48999999999998, copyrightYear=1968, rating=G, bonusFeatureTime=34.26]
+BookOnTape[author=John Biguenet, narrator=Xe Sands, title=Oyster, isPresent=false, playingTime=589.12, copyrightYear=2003]
+CD [title=Cease To Begin, isPresent=false, playingTime=34.0, copyrightYear=2007, artist=Band of Horses, numOfTracks=10]
+BookOnTape[author=David Foster Wallace, narrator=Sean Pratt, title=Infinite Jest, isPresent=true, playingTime=3374.03, copyrightYear=2012]
+CD [title=Every Open Eye, isPresent=true, playingTime=42.0, copyrightYear=2015, artist=CHVCHES, numOfTracks=11]
+DVD[title=Mad Max: Fury Road, isPresent=false, playingTime=166.49, copyrightYear=2015, rating=R, bonusFeatureTime=46.04]
+What's in this library....
+Title: 2001: A Space Odyssey Available: true Playing Time: 195.48999999999998 Copyright Year: 1968
+Rating: G Bonus Feature Time: 34.26
+String representation: DVD[title=2001: A Space Odyssey, isPresent=true, playingTime=195.48999999999998, copyrightYear=1968, rating=G, bonusFeatureTime=34.26]
+Title: Oyster Available: false Playing Time: 589.12 Copyright Year: 2003
+Author: John Biguenet Narrator: Xe Sands
+String representation: BookOnTape[author=John Biguenet, narrator=Xe Sands, title=Oyster, isPresent=false, playingTime=589.12, copyrightYear=2003]
+Title: Cease To Begin Available: false Playing Time: 34.0 Copyright Year: 2007
+Artist: Band of Horses Number of Tracks: 10
+String representation: CD [title=Cease To Begin, isPresent=false, playingTime=34.0, copyrightYear=2007, artist=Band of Horses, numOfTracks=10]
+Title: Infinite Jest Available: true Playing Time: 3374.03 Copyright Year: 2012
+Author: David Foster Wallace Narrator: Sean Pratt
+String representation: BookOnTape[author=David Foster Wallace, narrator=Sean Pratt, title=Infinite Jest, isPresent=true, playingTime=3374.03, copyrightYear=2012]
+Title: Every Open Eye Available: true Playing Time: 42.0 Copyright Year: 2015
+Artist: CHVCHES Number of Tracks: 11
+String representation: CD [title=Every Open Eye, isPresent=true, playingTime=42.0, copyrightYear=2015, artist=CHVCHES, numOfTracks=11]
+Title: Mad Max: Fury Road Available: false Playing Time: 166.49 Copyright Year: 2015
+Rating: R Bonus Feature Time: 46.04
+String representation: DVD[title=Mad Max: Fury Road, isPresent=false, playingTime=166.49, copyrightYear=2015, rating=R, bonusFeatureTime=46.04]
+2001: A Space Odyssey is currently available.
+Oyster is currently checked out
+Cease To Begin is currently checked out
+Infinite Jest is currently available.
+Every Open Eye is currently available.
+Mad Max: Fury Road is currently checked out
+Everything currently unavailable is about to be checked in...
+Expect zero
+0
